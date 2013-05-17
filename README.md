@@ -1,7 +1,41 @@
-Title:	LaTeX support files for peg-multimarkdown  
+# LaTeX support files for peg-multimarkdown
 
+## Modifications for the Use with Scrivener
 
-# Introduction #
+Basically, this is the project as described below. I just changed some things for using the package with [Scrivener](http://www.literatureandlatte.com/scrivener.php).
+Projects that I write with Scrivener are exported as LaTeX with the classes *Article* or *Memoir* and then finalized with [texmaker](http://www.xm1math.net/texmaker/).
+
+### BibTeX
+
+If you want to link a database with references (.bib) to the tex-file, you can enter this in the Meta-Data settings in the Compile dialogue:
+
+    BibTeX: name-of-your-refs
+
+### BibLaTeX
+
+As you can see in `mmd-memoir-packages.tex` I changed the reference management to BibLaTeX
+
+    \usepackage[citestyle=authoryear,style=authoryear,sorting=nty]{biblatex}
+
+This means that you need to change some lines of code in `mmd-memoir-footer.tex` and print out the bibliography with
+
+    \printbibliography
+
+As Scrivener will produce a line of TeX code from this that looks like the following:
+
+    \def\bibliocommand{\bibliography{refs}}
+
+you will manually have to change this to
+
+    \bibliography{refs}
+
+and put the refs-file relative to the tex-file.
+
+This could work! :-)
+
+Thanks to the Markdown folks for the amazing opportunities around this way of writing!
+
+## Introduction #
 
 [peg-multimarkdown] is  a program to  convert plain  text into HTML  or LaTeX.
 This project includes  some default template files that can  be used to create
@@ -20,7 +54,7 @@ you leave out important metadata (substituting `Title`, `Author`, etc).
 [peg-multimarkdown]: https://github.com/fletcher/peg-multimarkdown
 
 
-# Installation #
+## Installation #
 
 These files need to go in your `texmf` folder, wherever that may be.
 
@@ -36,7 +70,7 @@ I don't  remember off the top  of my head  where your texmf folder  belongs in
 Windows.
 
 
-# Default Metadata Types #
+## Default Metadata Types #
 
 Several MultiMarkdown  metadata keys are used  in these files, and  are fairly
 self-explanatory:
@@ -55,7 +89,7 @@ Metadata is  used in order,  so the order and  placement of the  `LaTeX Input`
 metadata fields is important.
 
 
-# Article #
+## Article #
 
 To create  a document using the  memoir article class, you  need the following
 basic metadata:
@@ -69,7 +103,7 @@ basic metadata:
 	latex footer:		mmd-memoir-footer
 
 
-# Beamer #
+## Beamer #
 
 To create a pdf slideshow presentation using beamer:
 
@@ -94,7 +128,7 @@ slide, and `h4`  is used to designate  text that will print in  a handout, but
 not in the actual slideshow.
 
 
-# Letterhead #
+## Letterhead #
 
 To create a letter on customized letterhead using MultiMarkdown:
 
@@ -122,7 +156,7 @@ last line of the metadata:
 	latex input:		mmd-envelope-begin-doc
 
 
-# Memoir #
+## Memoir #
 
 To create a "book" using memoir:
 
