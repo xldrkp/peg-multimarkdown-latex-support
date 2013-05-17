@@ -33,6 +33,15 @@ and put the refs-file relative to the tex-file.
 
 This could work! :-)
 
+### Citations
+
+I switched to BibLaTeX in order to have a German bibliography in authoryear style. To cite like this: (Petermann, 2010)
+you can easily put the following markup in you Scrivener file:
+
+    <!--\parencite{petermann_2010}-->
+
+This will help not to escape the LaTeX code by Scrivener. Read the docs for BibLaTeX.
+
 Thanks to the Markdown folks for the amazing opportunities around this way of writing!
 
 ## Introduction #
